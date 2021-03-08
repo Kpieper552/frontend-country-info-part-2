@@ -1,3 +1,25 @@
+
+async function fetchDataCountry () {
+    const result = await axios.get('https://restcountries.eu/rest/v2/all');
+           console.log("hi there ", result.data);
+    const countryLiz = document.getElementById("countryList")  ;
+    console.log(countryLiz);
+
+    for (const name of result.data) {
+        console.log ("land ", name)
+        const listItem = document.createElement("li");
+                listItem.textContent = name.flag + "IMGFLAG" + "Country:" + name.name + " situated in  " + name.subregion + " Population: " + name.population;
+        console.log("lijst" , listItem);
+        countryLiz.appendChild(listItem);
+    }
+}
+fetchDataCountry();
+//(countryData.population/1000000).toFixed(2)
+//console.log(displayCountry);
+//map name.population op volgorde via sorteer
+
+
+
 <p>Get Country Info <a href="http://kpieper552.github.io/frontend-country-info/" target="_blank">externe pagina in een nieuw browser venster</a>.</p>
 
 // mijn resultaten tot zover
@@ -30,23 +52,35 @@ const popLowHigh = name.population.sort((popA, popB) => {
     }
 });
 console.log(popLowHigh);
+<p>Get Country Info <a href="http://kpieper552.github.io/frontend-country-info/" target="_blank">externe pagina in een nieuw browser venster</a>.</p>
 
+// mijn resultaten tot zover
 
-async function fetchDataCountry () {
-    const result = await axios.get('https://restcountries.eu/rest/v2/all');
-           console.log("hi there ", result.data);
-    const countryLiz = document.getElementById("countryList")  ;
-    console.log(countryLiz);
+function displayCountry(countryData) {
+  const countryElement = document.createElement("li");
+  countryElement.setAttribute("class", "product-listItem");
+  const countryName = countryData.name;
+  const countryPopulation = countryData.population; // deze dient op volgorde in een functie
+  countryElement.textContent = countryName.concat(tvPopulation);
 
-    for (const name of result.data) {
-        console.log ("land ", name)
-        const listItem = document.createElement("li");
-                listItem.textContent = name.flag + "IMGFLAG" + "Country:" + name.name + " situated in  " + name.subregion + " Population: " + name.population;
-        console.log("lijst" , listItem);
-        countryLiz.appendChild(listItem);
-    }
+  const list = document.getElementById("productList");
+  list.appendChild(countryElement);
+};
+for (let index = 0; index < countryData.length; index++) {
+  displayCountry(countryData);
 }
-fetchDataCountry();
-//(countryData.population/1000000).toFixed(2)
-//console.log(displayCountry);
-//map name.population op volgorde via sorteer
+console.log(displayCountry);
+
+
+const popLowHigh = name.population.sort((popA, popB) => {
+    if (popA.year > popB.year) {
+        return 1;
+    }
+    if (popA.year < popB.year) {
+        return -1;
+    }
+    if (popA.year === popB.year) {
+        return 0;
+    }
+});
+console.log(popLowHigh);
