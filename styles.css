@@ -21,7 +21,7 @@ button {
     align-items: flex-end;
 
 }
-#country-List {
+#countryList {
     list-style-type: none;
     column-count: 3;
     max-width: 1200px;

@@ -1,4 +1,4 @@
-const countryList = document.getElementById('country-List');
+const countryList = document.getElementById('countryList');
 
 async function getAllCountries() {
     try {
@@ -23,7 +23,7 @@ async function getAllCountries() {
             const countryNameElement = document.createElement('span');
             countryNameElement.textContent = name;
             countryNameElement.setAttribute('class', getRegionClass(region));
-            // <span> aan ons <li> element toevoegen
+
             countryElement.appendChild(countryNameElement);
 
             const populationText = document.createElement('p');
