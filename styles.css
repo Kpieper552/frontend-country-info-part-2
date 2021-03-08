@@ -18,9 +18,10 @@ button {
     border: 2px solid goldenrod;
     width: 200px;
     height: 50px;
+    align-items: flex-end;
 
 }
-#countryList {
+#country-List {
     list-style-type: none;
     column-count: 3;
     max-width: 1200px;

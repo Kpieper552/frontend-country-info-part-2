@@ -1,4 +1,4 @@
-const countryList = document.getElementById('countryList');
+const countryList = document.getElementById('country-List');
 
 async function getAllCountries() {
     try {
